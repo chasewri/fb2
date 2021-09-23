@@ -86,7 +86,7 @@ final class FizzBuzzTwoTest extends TestCase
                     $this->assertSame(1, preg_match("/3/", (string)$test_arr[$key]));
                     break;
                 default:
-                    $this->assertGreaterThan(0, (int)$test_arr[$key]);
+                    $this->assertSame((int)$capture_arr[$key], $test_arr[$key]);
                     break;
             }
         }
