@@ -40,11 +40,10 @@ class FizzBuzzTwo
         return $result;
     }
 
-    public function print_result(): int
+    public static function print_result(int $start, int $stop): int
     {
-        return print($this->result_string() . "\n");
+        return print((new FizzBuzzTwo($start, $stop))->result_string() . "\n");
     }
 }
 
-$fb = new FizzBuzzTwo(1, 20);
-$fb->print_result();
+FizzBuzzTwo::print_result(1, 20);
