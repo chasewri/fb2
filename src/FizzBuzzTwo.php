@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class FizzBuzzTwo
+final class FizzBuzzTwo
 {
     // int > 0
     private $start;
@@ -15,7 +15,7 @@ class FizzBuzzTwo
         $this->stop = $stop;
     }
 
-    public function get_single_result(int $num): string
+    public function getSingleResult(int $num): string
     {
         if (preg_match("/3/", strval($num))) {
             return 'lucky ';
@@ -31,19 +31,19 @@ class FizzBuzzTwo
         return strlen($return_val) > 0 ? $return_val . " " : strval($num) . " ";
     }
 
-    public function result_string(): string
+    public function resultString(): string
     {
         $result = "";
         for ($i = $this->start; $i < $this->stop + 1; $i++) {
-            $result .= $this->get_single_result($i);
+            $result .= $this->getSingleResult($i);
         }
         return $result;
     }
 
-    public static function print_result(int $start, int $stop): int
+    public static function printResult(int $start, int $stop): int
     {
-        return print((new FizzBuzzTwo($start, $stop))->result_string() . "\n");
+        return print((new self($start, $stop))->resultString() . "\n");
     }
 }
 
-FizzBuzzTwo::print_result(1, 20);
+FizzBuzzTwo::printResult(1, 20);
